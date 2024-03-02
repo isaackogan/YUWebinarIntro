@@ -1,0 +1,10 @@
+{
+  "/intro": {
+    "title": "Your Awesome Webinar",
+    "subtitle": "Day Month Year"
+  },
+  "/outro": {
+    "title": "Your Awesome Webinar",
+    "subtitle": "Thanks for attending!"
+  }
+}

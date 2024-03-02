@@ -1,0 +1,17 @@
+:root {
+
+  /* Default font settings */
+  color: rgba(255, 255, 255, 0.87);
+  font-family: "IBM Plex Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+
+  /* Fallback background */
+  background-color: #242424;
+
+  --york-red: #E31837;
+}
+
+/* No margins */
+html, body {
+  margin: 0;
+}
