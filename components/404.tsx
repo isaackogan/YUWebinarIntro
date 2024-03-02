@@ -1,5 +1,5 @@
-import {PageConfig} from "../App";
 import styled from "styled-components";
+import {PageConfig} from "../main";
 
 const Url = styled.a`
   color: white;

@@ -28,7 +28,7 @@ const Frame = styled.div`
   position: fixed;
 `;
 
-const FrameImage = styled.div`
+const FrameImage = styled("div")<{$url: string}>`
   background-size: 100% 100%;
   background: center url("${props => props.$url}");
   width: 100%;
@@ -73,12 +73,12 @@ export default class Slides extends Component<IProps, IState> {
 
     state: IState = {idx: 0};
 
-    private interval;
+    private interval?: number;
     private slides = [i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14];
 
     componentDidMount() {
         clearInterval(this.interval);
-        setInterval(this.updateSlide.bind(this), 5000);
+        this.interval = setInterval(this.updateSlide.bind(this), 5000);
     }
 
     updateSlide() {
@@ -92,13 +92,24 @@ export default class Slides extends Component<IProps, IState> {
 
     }
 
+    getPreloaded() {
+        const images = [];
+        let i=0;
+
+        for (let url of this.slides) {
+            images.push(
+                <link key={'im-' + i} rel="preload" as="image" href={url}  />
+            )
+            i++;
+        }
+        return images;
+    }
+
     render() {
 
         return (
-            <Frame
-                style={{borderWidth: this.props.borderWidth}}
-                $url={this.slides[this.state.idx]}
-            >
+            <Frame style={{borderWidth: this.props.borderWidth}}>
+                {this.getPreloaded()}
                 <FrameImage $url={this.slides[this.state.idx]}>
                     <Birds />
                 </FrameImage>

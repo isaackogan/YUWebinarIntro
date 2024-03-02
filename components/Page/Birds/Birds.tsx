@@ -2,7 +2,7 @@ import "./Birds.scss";
 import BirdUrl from "../../../assets/Bird.svg";
 import styled from "styled-components";
 
-const Bird = styled.div`
+const Bird = styled("div")<{$img: string}>`
   background-image: url("${props => props.$img}");
   margin-top: 50px;
 `;

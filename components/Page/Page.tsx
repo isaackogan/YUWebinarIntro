@@ -24,8 +24,8 @@ const Hero = styled.div`
   justify-content: space-between;
 `;
 
-let marginRight;
-const borderWidth = marginRight = 50;
+let marginRight: number;
+const borderWidth: number = marginRight = 50;
 
 
 const HeroTitle = styled.span`
